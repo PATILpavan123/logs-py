@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nginx Logs</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nginx Logs</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>IP</th>
+                <th>Timestamp</th>
+                <th>Request</th>
+                <th>Status</th>
+                <th>Size</th>
+                <th>Referrer</th>
+                <th>User Agent</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+                <tr>
+                    <td>{{ log.ip }}</td>
+                    <td>{{ log.timestamp }}</td>
+                    <td>{{ log.request }}</td>
+                    <td>{{ log.status }}</td>
+                    <td>{{ log.size }}</td>
+                    <td>{{ log.referrer }}</td>
+                    <td>{{ log.user_agent }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
